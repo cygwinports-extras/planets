@@ -1,0 +1,24 @@
+inherit ocaml
+
+DESCRIPTION="Orbital simulator"
+HOMEPAGE="http://planets.homedns.org/"
+SRC_URI="http://planets.homedns.org/dist/${P}.tgz"
+
+DIFF_EXCLUDES="common.ml"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	# 'make install' doesn't create directories first, so...
+	cd ${B}
+	dobin planets.exe
+	domenu planets.desktop
+	doicon planets.png
+	doman planets.1.gz
+}
+DOCS="KEYBINDINGS.txt"
+HTMLDOCS="getting_started.html"
