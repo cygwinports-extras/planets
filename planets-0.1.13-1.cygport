@@ -20,5 +20,4 @@ src_install() {
 	doicon planets.png
 	doman planets.1.gz
 }
-DOCS="KEYBINDINGS.txt"
-HTMLDOCS="getting_started.html"
+DOCS="KEYBINDINGS.txt getting_started.html"

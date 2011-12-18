@@ -1,0 +1,9 @@
+category: Games
+requires: tcl tcl-tk
+sdesc: "Orbital simulator"
+ldesc: "Planets is a simple interactive program for playing with 
+simulations of planetary systems. Planets was originally designed for 
+kids, in particular, for my then 4-year old nephew who is fascinated by 
+astronomy. The user interface is aimed at being simple enough that a 
+fairly young kid can get some joy out of it. But the adults who have 
+used it have found it to be pretty fun as well."
