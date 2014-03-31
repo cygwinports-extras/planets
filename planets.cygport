@@ -1,0 +1,40 @@
+inherit ocaml
+
+NAME="planets"
+VERSION=0.1.13
+RELEASE=2
+CATEGORY="Science"
+SUMMARY="Orbital simulator"
+DESCRIPTION="Planets is a simple interactive program for playing with
+simulations of planetary systems. Planets was originally designed for kids,
+in particular, for my then 4-year old nephew who is fascinated by astronomy.
+The user interface is aimed at being simple enough that a fairly young kid
+can get some joy out of it. But the adults who have used it have found it to
+be pretty fun as well."
+HOMEPAGE="http://planets.homedns.org/"
+SRC_URI="http://planets.homedns.org/dist/${NAME}-${VERSION}.tgz"
+PATCH_URI="
+	debian/patches/buildflags
+	debian/patches/string_random_bodies
+	debian/patches/fix_desktop_file
+	debian/patches/german_translation
+	debian/patches/ocaml4_typing
+"
+
+DIFF_EXCLUDES="common.ml"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	# 'make install' doesn't create directories first, so...
+	cd ${B}
+	dobin planets.exe
+	domenu planets.desktop
+	doicon planets.png
+	doman planets.1.gz
+}
+DOCS="KEYBINDINGS.txt getting_started.html"

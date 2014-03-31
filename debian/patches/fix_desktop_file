@@ -1,0 +1,15 @@
+Description: Fix properties in .desktop file
+
+--- trunk/planets.desktop	2007-06-20 04:20:50.000000000 +0200
++++ trunk.new/planets.desktop	2008-03-04 09:36:58.000000000 +0100
+@@ -3,7 +3,7 @@
+ Comment=A simple interactive program for playing with simulations of planetary systems
+ Comment[da]=Et simpelt interaktivt program til at lege med simulering af planetsystemer
+ Exec=planets
+-Icon=planets.png
+-Terminal=0
++Icon=planets
++Terminal=false
+ Type=Application
+-Categories=Application;Game;Education;Astronomy;Physics;
++Categories=Application;Education;Science;Astronomy;Physics;

@@ -1,0 +1,78 @@
+Description: Add German translation
+
+--- trunk/lstrings.ml	2008-03-04 09:37:57.000000000 +0100
++++ trunk.new/lstrings.ml	2008-03-04 09:38:05.000000000 +0100
+@@ -140,6 +140,65 @@
+ "
+   | _ -> raise Not_found
+ 
++let german word = match word with
++  | `paused -> "Angehalten"
++  | `tracing -> "Spurverfolgung"
++  | `true_bounce -> "Bouncing (experimentell)"
++  | `trace_length -> "Spurlänge"
++  | `disp_period -> "Bilddauer (ms)"
++  | `g -> "G"
++  | `grav_exp -> "exp. G"
++  | `diam_mult -> "Mittlerer Durchmesser"
++  | `rand_vel_mult -> "Durchschnittsgeschwindigkeit"
++  | `log_k_energy -> "log k Energie"
++  | `log_p_energy -> "log p Energie"
++  | `log_energy -> "log. Energie"
++  | `num_planets -> "Anzahl Planeten"
++  | `add_planet -> "Planet hinzufügen"
++  | `zoom_in -> "Hereinzoomen"
++  | `zoom_out -> "Herauszoomen"
++  | `iter_display -> "Iterationen/Bild"
++  | `time_step -> "Zeitschritt"
++  | `toggle_true_bounce -> "Echtes abprallen ein/aus"
++  | `toggle_bounce -> "Abprallen ein/aus"
++  | `center -> "Zentrieren"
++  | `option_dialog -> "Optionsdialog anzeigen"
++  | `change_all_colors -> "Alle Farben ändern"
++  | `quit -> "Beenden"
++  | `reset -> "Auf leeres Universum zurücksetzen"
++  | `save -> "Universum speichern"
++  | `load -> "Universum laden"
++  | `undo -> "Letzen hinzugefügten Planet löschen"
++  | `goback -> "Zuletzt hinzugefügten Planeten löschen"
++  | `toggle_pause -> "Animation pausieren/weiter"
++  | `toggle_trace -> "Spur ein/aus"
++  | `double_trace -> "Spurlänge verdoppeln"
++  | `halve_trace -> "Spurlänge halbieren"
++  | `place_random_orbital -> "Zufälligen orbitalen Planeten hinzufügen"
++  | `place_random_orbital_uni -> "Zufälligen orbitalen Planeten hinzufügen (unidirektional)"
++  | `place_random -> "Zufälligen Planeten hinzufügen"
++  | `cancel_com -> "Verfolgung des Massezentrums abschalten"
++  | `pan_up -> "Aufwärts scrollen"
++  | `pan_down -> "Abwärts scrollen"
++  | `pan_left -> "Nach links scrollen"
++  | `pan_right -> "Nach rechts scrollen"
++  | `display_help -> "Dieses Hilfefenster anzeigen"
++  | `help -> "Hilfe"
++  | `dismiss -> "Schließen"
++  | `options -> "Optionen"
++  | `at_startup -> "Diese Hilfe beim Start anzeigen?"
++  | `random_bodies -> "Neue zufällige Planeten:"
++  | `prologue -> "Willkommen zu planets!
++Planets ist ein einfacher Simulator für die orbitale Bewegung von
++Planeten. Eine kurze Einführung ist zu finden unter:
++   http://planets.homedns.org/getting_started.html
++
++Es folgt die Tastenbelegung. Eine Beschreibung der Tasten ist in der Datei
++KEYBINDINGS.txt zu finden, die mit diesem Programm ausgeliefert wird.
++
++"
++  | _ -> raise Not_found
++
+ let maxsub string ~pos ~len =
+   let len = min len (String.length string - pos) in
+   String.sub string ~pos ~len
+@@ -160,6 +219,7 @@
+     match maxsub ~pos:0 ~len:2 (Sys.getenv "LANG") with 
+       | "en" -> english word
+       | "da" -> danish word
++      | "de" -> german word
+       | _ -> english word
+   ) with
+       Not_found -> english word

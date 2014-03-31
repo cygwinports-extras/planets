@@ -1,0 +1,25 @@
+Description: Fix crash in C locale due to un-i18n'ed string
+Fixes-bug: 194402
+
+--- trunk/display.ml	2007-06-20 04:20:50.000000000 +0200
++++ trunk.new/display.ml	2008-03-04 09:31:13.000000000 +0100
+@@ -237,7 +237,7 @@
+ 
+     Options.add_option obox  
+       (new Options.void_entry_display
+-	 ~text:"New random bodies:" ());
++	 ~text:(Lstrings.get `random_bodies) ());
+ 
+     Options.add_option_live obox diameter_multiplier
+       (new Options.float_entry_option
+
+--- trunk/lstrings.ml	2007-06-20 04:20:50.000000000 +0200
++++ trunk.new/lstrings.ml	2008-03-04 09:31:13.000000000 +0100
+@@ -68,6 +68,7 @@
+   | `dismiss -> "Dismiss"
+   | `options -> "Options"
+   | `at_startup -> "Display this screen at startup?"
++  | `random_bodies -> "New random bodies:"
+   | `prologue -> "Welcome to Planets!
+ Planets is a simple orbital planetary simulator.  A short 
+ introduction to planets can be found at:
